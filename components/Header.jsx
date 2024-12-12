@@ -1,88 +1,131 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import bookinglogo from '@/assets/images/bookinglogo.svg';
-import {FaUser,FaSignInAlt,FaSignOutAlt,FaBuilding} from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaUser, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+
 const Header = () => {
+    const [nav, setNav] = useState(false);
+
     return (
-        <header className='flex shadow-lg py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
-            <div className='flex flex-wrap items-center justify-between gap-4 w-full'>
-                <Link href="javascript:void(0)"
-                    className="lg:absolute max-lg:left-10 lg:top-2/4 lg:left-2/4 lg:-translate-x-1/2 lg:-translate-y-1/2">
-                    <Image className='h-12 w-12' src={bookinglogo} alt='Bookingrooms' priority={true}></Image>
-                </Link>
+        <header>
+            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-600 shadow">
+                <div className="container flex justify-between items-center">
 
-                <div className='hidden md:block sm:block'>
-                    <div className="ml-10 flex items-baseline space-x-4">
-                        <ul
-                            className='ml-10 flex items-baseline space-x-4'>
-                            <li className='max-lg:border-b max-lg:py-3 px-3'>
-                                <Link href='javascript:void(0)'
-                                    className='hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]'>Rooms</Link>
-                            </li>
-                            <li className='max-lg:border-b max-lg:py-3 px-3'><Link href='javascript:void(0)'
-                                className='hover:text-[#007bff] text-[#333] block font-semibold text-[15px]'>Bookings</Link>
-                            </li>
-                            <li className='max-lg:border-b max-lg:py-3 px-3'><Link href='javascript:void(0)'
-                                className='hover:text-[#007bff] text-[#333] block font-semibold text-[15px]'>Add Room</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    <div className="flex items-center gap-6">
+                        {/* Logo */}
+                        <div className="flex items-center">
+                            <Link href="/" className="flex items-center">
+                                <Image className="h-12 w-12" src={bookinglogo} alt="Bookingrooms" priority={true}></Image>
+                            </Link>
+                        </div>
 
-                <div className='flex items-center ml-auto'>
-                    <div className="ml-4 flex items-center justify-center md:ml-6">
-                        <Link href='javascript:void(0)'
-                            className='text-[#007bff] hover:underline my-5 pr-5'>
-                                <FaBuilding className="inline mr-2"></FaBuilding>My Rooms
-                                </Link>
-                        <Link href='javascript:void(0)'
-                            className='text-[#007bff] hover:underline my-5 pr-5'>
-                                <FaSignInAlt className="inline mr-2"></FaSignInAlt>Login
-                                </Link>
-                        <Link href='javascript:void(0)'
-                            className='text-[#007bff] hover:underline my-5 pr-5'>
-                                <FaUser className="inline mr-2"></FaUser>Sign Up
-                                </Link>
-                        <Link href='javascript:void(0)'
-                            className='text-[#007bff] hover:underline my-5 pr-5'>
-                                <FaSignOutAlt className="inline mr-2"></FaSignOutAlt>Log Out
-                                </Link>
-                        
-
-                    </div>
-                </div>
-
-
-                {/* menu para mobile */}
-
-                {/* <div className='flex flex-wrap items-center justify-between gap-4 w-full'>
-                    <Link href="javascript:void(0)"
-                        className="lg:absolute max-lg:left-10 lg:top-2/4 lg:left-2/4 lg:-translate-x-1/2 lg:-translate-y-1/2">
-                        <Image className='h-12 w-12' src={bookinglogo} alt='Bookingrooms' priority='true'></Image>
-                    </Link>
-
-                    <div className='md:hidden'>
-                        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-
-                            <ul
-                                className='lg:flex lg:gap-x-5 max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-1/2 max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50'>
-                                <li className='max-lg:border-b max-lg:py-3 px-3'>
-                                    <Link href='javascript:void(0)'
-                                        className='hover:text-[#007bff] text-[#007bff] block font-semibold text-[15px]'>Rooms</Link>
+                        {/* Navegación */}
+                        <div
+                            className={`flex-grow md:flex md:items-center md:gap-8 ${nav ? "block" : "hidden"} pl-6`}
+                        >
+                            <ul className="flex flex-col md:flex-row gap-6">
+                                <li>
+                                    <Link
+                                        href="/"
+                                        className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
+                                    >
+                                        Home
+                                    </Link>
                                 </li>
-                                <li className='max-lg:border-b max-lg:py-3 px-3'><Link href='javascript:void(0)'
-                                    className='hover:text-[#007bff] text-[#333] block font-semibold text-[15px]'>Bookings</Link>
+                                <li>
+                                    <Link
+                                        href="/"
+                                        className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
+                                    >
+                                        Bookings
+                                    </Link>
                                 </li>
-                                <li className='max-lg:border-b max-lg:py-3 px-3'><Link href='javascript:void(0)'
-                                    className='hover:text-[#007bff] text-[#333] block font-semibold text-[15px]'>Add Room</Link>
+                                <li>
+                                    <Link
+                                        href="/"
+                                        className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
+                                    >
+                                        Add Rooms
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div> */}
-            </div>
+
+
+
+                    <div className="flex ml-auto items-end">
+                        <button
+                            className="md:hidden p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                            aria-controls="mobile-menu"
+                            aria-expanded={nav}
+                            onClick={() => setNav(!nav)}
+                        >
+                            <span className="sr-only">Open main menu</span>
+                            {nav ? (
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414 1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            ) : (
+                                <svg
+                                    className="w-6 h-6"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            )}
+                        </button>
+
+                        <div
+                            className={`container flex flex-col md:flex md:flex-row md:items-end gap-4 items-center ${nav ? "block" : "hidden"} ml-auto`}
+                        >
+                            <Link
+                                href="/"
+                                className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
+                            >
+                                <FaUser className="inline mr-2" />
+                                Sign Up
+                            </Link>
+                            <Link
+                                href="/"
+                                className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
+                            >
+                                <FaSignInAlt className="inline mr-2" />
+                                Login
+                            </Link>
+                            <Link
+                                href="/"
+                                className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
+                            >
+                                <FaSignOutAlt className="inline mr-2" />
+                                Logout
+                            </Link>
+                        </div>
+                    </div>
+
+
+                </div>
+            </nav>
         </header>
+
     );
-}
+};
 
 export default Header;
