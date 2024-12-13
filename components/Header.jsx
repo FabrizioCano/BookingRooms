@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import bookinglogo from '@/assets/images/bookinglogo.svg';
 import React, { useState } from "react";
-import { FaUser, FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
@@ -13,17 +13,17 @@ const Header = () => {
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-600 shadow">
                 <div className="container flex justify-between items-center">
 
-                    <div className="flex items-center gap-6">
-                        {/* Logo */}
+                    <div className="flex items-center justify-end gap-6">
+
                         <div className="flex items-center">
                             <Link href="/" className="flex items-center">
                                 <Image className="h-12 w-12" src={bookinglogo} alt="Bookingrooms" priority={true}></Image>
                             </Link>
                         </div>
 
-                        {/* Navegación */}
+
                         <div
-                            className={`flex-grow md:flex md:items-center md:gap-8 ${nav ? "block" : "hidden"} pl-6`}
+                            className={`flex-grow md:flex md:items-center md:gap-8 ${nav ? "block" : "hidden"} pl-5`}
                         >
                             <ul className="flex flex-col md:flex-row gap-6">
                                 <li>
@@ -36,7 +36,7 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/"
+                                        href="/bookings"
                                         className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
                                     >
                                         Bookings
@@ -44,10 +44,18 @@ const Header = () => {
                                 </li>
                                 <li>
                                     <Link
-                                        href="/"
+                                        href="/rooms/add"
                                         className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
                                     >
                                         Add Rooms
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/rooms/my"
+                                        className="block py-2 text-white-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-primary-700 dark:text-white dark:hover:text-white"
+                                    >
+                                        My Rooms
                                     </Link>
                                 </li>
                             </ul>
@@ -56,7 +64,7 @@ const Header = () => {
 
 
 
-                    <div className="flex ml-auto items-end">
+                    <div className="flex ml-auto items-end justify-end">
                         <button
                             className="md:hidden p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                             aria-controls="mobile-menu"
@@ -94,24 +102,24 @@ const Header = () => {
                         </button>
 
                         <div
-                            className={`container flex flex-col md:flex md:flex-row md:items-end gap-4 items-center ${nav ? "block" : "hidden"} ml-auto`}
+                            className={`flex flex-col md:flex md:flex-row md:items-end gap-4 items-center ${nav ? "block" : "hidden"} ml-auto`}
                         >
                             <Link
-                                href="/"
+                                href="/register"
                                 className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
                             >
                                 <FaUser className="inline mr-2" />
                                 Sign Up
                             </Link>
                             <Link
-                                href="/"
+                                href="/login"
                                 className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
                             >
                                 <FaSignInAlt className="inline mr-2" />
                                 Login
                             </Link>
                             <Link
-                                href="/"
+                                href="/login"
                                 className="py-3 px-5 text-sm mt-2 mb-2 text-white bg-slate-500 rounded-lg shadow-lg hover:bg-slate-700 transition-all duration-300 ease-in-out"
                             >
                                 <FaSignOutAlt className="inline mr-2" />
