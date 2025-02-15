@@ -5,7 +5,7 @@ import Link from 'next/link';
 import BookingForm from '@/components/BookingForm';
 import { FaChevronLeft } from 'react-icons/fa';
 const RoomPage = async ({params}) => {
-    const {id}=params;
+    const {id}=await params;
     const room=await getRoom(id);
 
     if (!room){

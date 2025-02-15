@@ -3,13 +3,22 @@ import Link from "next/link";
 import createSession from "../actions/createSession";
 import { useEffect } from "react";
 import { useActionState } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
 const LoginPage = () => {
 
     const [state,formAction]=useActionState(createSession,{});
 
+    const router=useRouter();
     useEffect(()=>{
         if(state.error){
-            console.log(state.error);
+            toast.error(state.error);
+        }
+
+        if(state.success){
+            toast.success('Logged in succesfully');
+            router.push('/');
         }
     },[state]);
     return (
@@ -56,7 +65,7 @@ const LoginPage = () => {
                                     name="password"
                                     type="password"
                                     autoComplete="current-password"
-                                    
+                                    required
                                     className="appearance-none rounded-md relative block w-full px-4 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 text-lg"
                                     placeholder="Enter your password"
                                 />
