@@ -1,44 +1,120 @@
+'use client';
+import { useEffect, useState } from "react";
+import { useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import createUser from "../actions/createUser";
 import Link from "next/link";
 const RegisterPage = () => {
+
+    const [state, formAction] = useActionState(createUser, {});
+    const router = useRouter();
+
+    useEffect(() => {
+        if (state.error) {
+            toast.error(state.error);
+        }
+
+        if (state.success) {
+            toast.success("You can now log in to the page");
+            router.push('/login')
+        }
+    }, [state])
+
     return (
 
         <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-4">
                 <div className="bg-white px-8 py-12 rounded-lg shadow-md text-black w-full">
                     <h1 className="mb-8 text-4xl font-bold text-center">Sign up</h1>
-                    <input
-                        type="text"
-                        className="block border border-grey-light w-full p-4 text-lg rounded mb-6"
-                        name="fullname"
-                        placeholder="Full Name"
-                    />
+                    <form action={formAction}>
+                        
 
-                    <input
-                        type="text"
-                        className="block border border-grey-light w-full p-4 text-lg rounded mb-6"
-                        name="email"
-                        placeholder="Email"
-                    />
+                        <div className='mb-4'>
+                            <label
+                                htmlFor='name'
+                                className='block text-gray-700 font-bold mb-2'
+                            >
+                                Name
+                            </label>
+                            <input
+                                type='text'
+                                id='name'
+                                name='name'
+                                className='border rounded w-full py-2 px-3'
+                                autoComplete='name'
+                                required
+                            />
+                        </div>
 
-                    <input
-                        type="password"
-                        className="block border border-grey-light w-full p-4 text-lg rounded mb-6"
-                        name="password"
-                        placeholder="Password"
-                    />
-                    <input
-                        type="password"
-                        className="block border border-grey-light w-full p-4 text-lg rounded mb-6"
-                        name="confirm_password"
-                        placeholder="Confirm Password"
-                    />
+                        <div className='mb-4'>
+                            <label
+                                htmlFor='email'
+                                className='block text-gray-700 font-bold mb-2'
+                            >
+                                Email
+                            </label>
+                            <input
+                                type='email'
+                                id='email'
+                                name='email'
+                                className='border rounded w-full py-2 px-3'
+                                autoComplete='email'
+                                required
+                            />
+                        </div>
 
-                    <button
-                        type="submit"
-                        className="group relative w-full flex justify-center py-3 px-6 text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-500"
-                    >
-                        Create Account
-                    </button>
+                        <div className='mb-4'>
+                            <label
+                                htmlFor='password'
+                                className='block text-gray-700 font-bold mb-2'
+                            >
+                                Password
+                            </label>
+                            <input
+                                type='password'
+                                id='password'
+                                name='password'
+                                className='border rounded w-full py-2 px-3'
+                                required
+                                autoComplete='password'
+                            />
+                        </div>
+
+                        <div className='mb-6'>
+                            <label
+                                htmlFor='confirm-password'
+                                className='block text-gray-700 font-bold mb-2'
+                            >
+                                Confirm Password
+                            </label>
+                            <input
+                                type='password'
+                                id='confirm_password'
+                                name='confirm_password'
+                                className='border rounded w-full py-2 px-3'
+                                autoComplete='confirm_password'
+                                required
+                            />
+                        </div>
+
+                        <div className='flex flex-col gap-5'>
+                            <button
+                                type='submit'
+                                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'
+                            >
+                                Register
+                            </button>
+
+                            <p>
+                                Have an account?
+                                <Link href='/login' className='text-blue-500'>
+                                    Login
+                                </Link>
+                            </p>
+                        </div>
+                    </form>
+
 
                     <div className="text-center text-md text-grey-dark mt-6">
                         By signing up, you agree to the

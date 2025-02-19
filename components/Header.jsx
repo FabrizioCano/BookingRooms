@@ -2,30 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from '@/assets/images/bookinglogo.svg';
-import React, { useState, useEffect } from "react";
 import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 import destroySession from "@/app/actions/destroySession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { checkAuth } from '@/app/actions/checkAuth';
+import { useAuth } from "@/app/context/authContext";
 const Header = () => {
-    const [nav, setNav] = useState(false);
     const router = useRouter();
-
-    const [isAuthenticated, setIsAuthenticated] = useState(null);
-
-    useEffect(() => {
-        const fetchAuth = async () => {
-            const result = await checkAuth();
-            setIsAuthenticated(result.isAuthenticated);
-        };
-        fetchAuth();
-    }, []);
+    const {isAuthenticated, setIsAuthenticated} = useAuth(null);
 
     const handleLogout = async () => {
         const { success, error } = await destroySession();
 
         if (success) {
+            setIsAuthenticated(false);
             router.push('/login');
         } else {
             toast.error(error);

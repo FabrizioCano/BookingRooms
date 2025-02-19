@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Heading from "@/components/Heading";
 import { ToastContainer } from "react-toastify";
+import AuthWrapper from "@/components/AuthWrapper";
 import 'react-toastify/dist/ReactToastify.css';
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,17 +23,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header></Header>
-        <main className="mx-auto max-width7xl px-4 p-y6 sm:px-6 lg:px-8">
-        {children}
-        </main>
-        <Footer></Footer>
-        <ToastContainer></ToastContainer>
-      </body>
-    </html>
+    <AuthWrapper>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Header></Header>
+          <main className="mx-auto max-width7xl px-4 p-y6 sm:px-6 lg:px-8">
+            {children}
+          </main>
+          <Footer></Footer>
+          <ToastContainer></ToastContainer>
+        </body>
+      </html>
+    </AuthWrapper>
   );
 }

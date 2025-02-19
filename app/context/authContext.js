@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import checkAuth from "../actions/checkAuth";
+import { createContext, useContext, useState, useEffect } from 'react';
+import checkAuth from '@/app/actions/checkAuth';
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -12,6 +13,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(isAuthenticated);
       setCurrentUser(user);
     };
+
     checkAuthentication();
   }, []);
 
@@ -22,20 +24,17 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
-
 };
-//custom hook for auth status
-export const useAuth=()=>{
-    const context=useContext(AuthContext);
 
-    if(!context){
-        throw new Error('useAuth must be used within an authrovider');
-    }
-
-    return context;
-
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };
