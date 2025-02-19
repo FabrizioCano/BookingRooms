@@ -13,5 +13,5 @@ export async function middleware(request) {
 
 //limited routes
 export const config={
-    matcher: ['/bookings'],
+    matcher: ['/bookings','/rooms/add','/rooms/my'],
 }

@@ -2,10 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const RoomCard = ({ room }) => {
+
+    const bucketId=process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ROOMS;
+    const projectId=process.env.NEXT_PUBLIC_APPWRITE_PROJECT;
+
+    const imageUrl=`https://cloud.appwrite.io/v1/storage/buckets/${bucketId}/files/${room.image}/view?project=${projectId}`;
+
+    const imageSrc = room.image ? imageUrl : '/images/no-image.jpg';
     return (
         <div className="flex flex-col justify-between max-w-sm h-full bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-gray-700">
             <Image
-                src={`/images/rooms/${room.image}`} 
+                src={imageSrc} 
                 width={500} 
                 height={300}
                 alt={room.name}
