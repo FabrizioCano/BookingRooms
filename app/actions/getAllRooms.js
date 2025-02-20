@@ -14,7 +14,7 @@ async function getAllRooms() {
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROOMS
     );
 
-
+    /* revalidatePath('/','layout'); */
 
     return rooms;
   } catch (error) {
