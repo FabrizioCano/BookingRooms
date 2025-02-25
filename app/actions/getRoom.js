@@ -14,7 +14,7 @@ async function getRoom(id) {
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROOMS,
       id
     );
-
+    console.log(room);
     return room;
   } catch (error) {
     console.log('Failed to get room', error);
