@@ -6,6 +6,7 @@ import Heading from "@/components/Heading";
 import { ToastContainer } from "react-toastify";
 import AuthWrapper from "@/components/AuthWrapper";
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "@/components/NavBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,8 +29,8 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <Header></Header>
-          <main className="mx-auto max-width7xl px-4 p-y6 sm:px-6 lg:px-8 bg-white-200">
+          <Navbar></Navbar>
+          <main className="mx-auto max-width7xl px-4 pt-20 sm:px-6 lg:px-8 bg-white-200">
             {children}
           </main>
           <Footer></Footer>
