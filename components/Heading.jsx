@@ -1,10 +1,12 @@
 const Heading = ({ title }) => {
   return ( 
-    <section className="bg-white-100 mb-7 shadow px-6 py-6 w-full">
+    <div className="mt-5 w-full">
+    <section className="bg-white-700 mb-7 px-6 py-6 w-full">
       <h1 className="text-2xl text-center font-bold tracking-tight text-gray-900">
         {title}
       </h1>
     </section>
+    </div>
   );
 };
 
