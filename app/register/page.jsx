@@ -25,8 +25,8 @@ const RegisterPage = () => {
 
         <div className="bg-grey-lighter min-h-screen flex flex-col">
             <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-4">
-                <div className="bg-white px-8 py-12 rounded-lg shadow-md text-black w-full">
-                    <h1 className="mb-8 text-4xl font-bold text-center">Sign up</h1>
+                <div className="bg-white px-8 py-12 mt-5 rounded-lg shadow-md text-black w-full">
+                    <h1 className="mb-8 text-4xl font-bold text-center">Register</h1>
                     <form action={formAction}>
                         
 
@@ -101,13 +101,13 @@ const RegisterPage = () => {
                         <div className='flex flex-col gap-5'>
                             <button
                                 type='submit'
-                                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'
+                                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
                             >
                                 Register
                             </button>
 
-                            <p>
-                                Have an account?
+                            <p className="text-center text-md text-grey-dark">
+                                Already have an account? {" "}
                                 <Link href='/login' className='text-blue-500'>
                                     Login
                                 </Link>
@@ -117,24 +117,18 @@ const RegisterPage = () => {
 
 
                     <div className="text-center text-md text-grey-dark mt-6">
-                        By signing up, you agree to the
-                        <Link className="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Terms of Service
+                        By signing up, you agree to the {" "}
+                        <Link className="no-underline border-b border-grey-dark text-blue-500" href="#">
+                            Terms of Service 
                         </Link>{" "}
-                        and
-                        <Link className="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                        and {" "}
+                        <Link className="no-underline border-b border-grey-dark text-blue-500" href="#">
                             Privacy Policy
                         </Link>.
                     </div>
                 </div>
 
-                <div className="text-grey-dark mt-8 text-lg">
-                    Already have an account?{" "}
-                    <Link className="no-underline border-b border-blue text-blue font-bold" href="/login">
-                        Log in
-                    </Link>
-                    .
-                </div>
+                
             </div>
         </div>
 

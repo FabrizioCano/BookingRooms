@@ -25,9 +25,9 @@ const LoginPage = () => {
         }
     },[state]);
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-16 sm:px-8 lg:px-16">
+        <div className="min-h-screen bg-sky-50 flex flex-col justify-center py-16 sm:px-8 lg:px-16">
             <div className="sm:mx-auto sm:w-full sm:max-w-lg">
-                <h2 className="mt-8 text-center text-4xl font-extrabold text-gray-900">
+                <h2 className="text-center text-4xl font-extrabold text-gray-900">
                     Sign in to your account
                 </h2>
                 <p className="mt-4 text-center text-lg text-gray-600 max-w">
