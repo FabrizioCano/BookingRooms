@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         >
           <Navbar></Navbar>
           <div className="flex flex-col min-h-screen">
-            <main className="flex-1 max-width7xl px-4 pt-20 sm:px-6 lg:px-8 bg-sky-100 bg-opacity-50 pb-5">
+            <main className="bg-main flex-1 max-width7xl px-4 pt-20 sm:px-6 lg:px-8 pb-5">
               {children}
             </main>
             </div>

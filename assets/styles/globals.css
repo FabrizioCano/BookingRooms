@@ -2,3 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    /* Background Colors */
+    --bg-main: #e3eaf0e7; /* Light grayish blue */
+    --bg-footer: #bcb8f3; /* Dark blue */
+    --bg-navbar: #bcb8f3; /* Same as footer */
+  
+    /* Primary Colors */
+    --primary: #ecedf3f1; /* Tailwind Blue-500 */
+    --primary-dark: #1e40af; /* Tailwind Blue-700 */
+    --primary-light: #b2cff0; /* Tailwind Blue-300 */
+  
+    /* Text Colors */
+    --text-main: #1e293b; /* Dark grayish blue */
+    --text-footer: #ffffff;
+    --text-link: #1b2436; /* Bright blue */
+    --text-link-hover: #1538aa;
+  
+    /* Border Colors */
+    --border-primary: #121f2c;
+
+
+  }
+  
+  /* Apply colors to classes */
+  .bg-main {
+    background-color: var(--bg-main);
+  }
+  .bg-footer {
+    background-color: var(--bg-footer);
+  }
+  .bg-navbar {
+    background-color: var(--bg-navbar);
+  }
+  .text-main {
+    color: var(--text-main);
+  }
+  .text-footer {
+    color: var(--text-footer);
+  }
+  .text-link {
+    color: var(--text-link);
+  }
+  .text-link:hover {
+    color: var(--text-link-hover);
+  }
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+  
+  
