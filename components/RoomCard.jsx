@@ -10,7 +10,7 @@ const RoomCard = ({ room }) => {
 
     const imageSrc = room.image ? imageUrl : '/images/no-image.jpg';
     return (
-        <div className="flex flex-col justify-between max-w-sm h-full bg-sky-100 bg-opacity-20 border-2 border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-gray-900">
+        <div className="flex flex-col justify-between max-w-sm h-full bg-primary border-2 border-primary rounded-lg ">
             <Image
                 src={imageSrc} 
                 width={500} 
