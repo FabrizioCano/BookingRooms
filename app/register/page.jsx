@@ -23,9 +23,9 @@ const RegisterPage = () => {
 
     return (
 
-        <div className="bg-grey-lighter min-h-screen flex flex-col">
+        <div className="bg-main min-h-screen flex flex-col">
             <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-4">
-                <div className="bg-white px-8 py-12 mt-5 rounded-lg shadow-md text-black w-full">
+                <div className="bg-navbar px-8 py-10 mt-3 mb-8 rounded-lg shadow-md text-main w-100">
                     <h1 className="mb-8 text-4xl font-bold text-center">Register</h1>
                     <form action={formAction}>
                         
@@ -33,7 +33,7 @@ const RegisterPage = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor='name'
-                                className='block text-gray-700 font-bold mb-2'
+                                className='block text-main font-bold mb-2'
                             >
                                 Name
                             </label>
@@ -50,7 +50,7 @@ const RegisterPage = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor='email'
-                                className='block text-gray-700 font-bold mb-2'
+                                className='block text-main font-bold mb-2'
                             >
                                 Email
                             </label>
@@ -67,7 +67,7 @@ const RegisterPage = () => {
                         <div className='mb-4'>
                             <label
                                 htmlFor='password'
-                                className='block text-gray-700 font-bold mb-2'
+                                className='block text-main font-bold mb-2'
                             >
                                 Password
                             </label>
@@ -84,7 +84,7 @@ const RegisterPage = () => {
                         <div className='mb-6'>
                             <label
                                 htmlFor='confirm-password'
-                                className='block text-gray-700 font-bold mb-2'
+                                className='block text-main font-bold mb-2'
                             >
                                 Confirm Password
                             </label>
@@ -101,14 +101,14 @@ const RegisterPage = () => {
                         <div className='flex flex-col gap-5'>
                             <button
                                 type='submit'
-                                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
+                                className='bg-primary-dark text-primary px-4 py-2 rounded hover:bg-text-link-hover'
                             >
                                 Register
                             </button>
 
-                            <p className="text-center text-md text-grey-dark">
+                            <p className="text-center text-md text-main">
                                 Already have an account? {" "}
-                                <Link href='/login' className='text-blue-500'>
+                                <Link href='/login' className='text-primary-dark'>
                                     Login
                                 </Link>
                             </p>
@@ -118,11 +118,11 @@ const RegisterPage = () => {
 
                     <div className="text-center text-md text-grey-dark mt-6">
                         By signing up, you agree to the {" "}
-                        <Link className="no-underline border-b border-grey-dark text-blue-500" href="#">
+                        <Link className="no-underline border-b border-primary text-primary-dark hover:text-text-link-hover" href="#">
                             Terms of Service 
                         </Link>{" "}
                         and {" "}
-                        <Link className="no-underline border-b border-grey-dark text-blue-500" href="#">
+                        <Link className="no-underline border-b border-primary text-primary-dark hover:text-text-link-hover" href="#">
                             Privacy Policy
                         </Link>.
                     </div>
