@@ -37,7 +37,7 @@ const RoomCard = ({ room }) => {
             <div className="p-5 flex flex-col items-center justify-center">
                 <Link
                     href={`/rooms/${room.$id}`}
-                    className="bg-blue-500 text-white px-4 py-2 rounded w-auto text-center hover:bg-blue-600"
+                    className="bg-primary-dark text-white px-4 py-2 rounded w-auto text-center hover:bg-text-link-hover"
                 >
                     View Room
                 </Link>

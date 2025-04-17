@@ -22,7 +22,7 @@ const Header = () => {
         }
     }
     return (
-        <header className='bg-gray-200'>
+        <header className='bg-main '>
             <nav className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
                 <div className='flex h-16 items-center justify-between'>
                     <div className='flex items-center'>
@@ -38,7 +38,7 @@ const Header = () => {
                             <div className='ml-10 flex items-baseline space-x-4'>
                                 <Link
                                     href='/'
-                                    className='rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                                    className='rounded-md px-3 py-2 text-sm font-medium text-main hover:bg-text-link hover:text-primary'
                                 >
                                     Rooms
                                 </Link>
@@ -47,13 +47,13 @@ const Header = () => {
                                     <>
                                         <Link
                                             href='/bookings'
-                                            className='rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                                            className='rounded-md px-3 py-2 text-sm font-medium text-main hover:primary hover:text-primary'
                                         >
                                             Bookings
                                         </Link>
                                         <Link
                                             href='/rooms/add'
-                                            className='rounded-md px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                                            className='rounded-md px-3 py-2 text-sm font-medium text-main hover:primary hover:text-primary'
                                         >
                                             Add Room
                                         </Link>
@@ -70,13 +70,13 @@ const Header = () => {
                                 <>
                                     <Link
                                         href='/login'
-                                        className='mr-3 text-gray-800 hover:text-gray-600'
+                                        className='mr-3 text-main hover:text-text-link'
                                     >
                                         <FaSignInAlt className='inline mr-1' /> Login
                                     </Link>
                                     <Link
                                         href='/register'
-                                        className='mr-3 text-gray-800 hover:text-gray-600'
+                                        className='mr-3 text-main hover:text-text-link'
                                     >
                                         <FaUser className='inline mr-1' /> Register
                                     </Link>
@@ -90,7 +90,7 @@ const Header = () => {
                                     </Link>
                                     <button
                                         onClick={handleLogout}
-                                        className='mx-3 text-gray-800 hover:text-gray-600'
+                                        className='mx-3 text-main hover:text-text-link'
                                     >
                                         <FaSignOutAlt className='inline mr-1' /> Sign Out
                                     </button>
@@ -106,7 +106,7 @@ const Header = () => {
                 <div className='space-y-1 px-2 pb-3 pt-2 sm:px-3'>
                     <Link
                         href='/'
-                        className='block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                        className='block rounded-md px-3 py-2 text-base font-medium text-main hover:primary hover:text-primary'
                     >
                         Rooms
                     </Link>
@@ -115,13 +115,13 @@ const Header = () => {
                         <>
                             <Link
                                 href='/bookings'
-                                className='block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                                className='block rounded-md px-3 py-2 text-base font-medium text-main hover:primary hover:text-primary'
                             >
                                 Bookings
                             </Link>
                             <Link
                                 href='/rooms/add'
-                                className='block rounded-md px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-700 hover:text-white'
+                                className='block rounded-md px-3 py-2 text-base font-medium text-main hover:primary hover:text-primary'
                             >
                                 Add Room
                             </Link>

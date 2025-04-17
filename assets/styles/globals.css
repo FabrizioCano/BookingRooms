@@ -10,14 +10,14 @@
   
     /* Primary Colors */
     --primary: #ecedf3f1; /* Tailwind Blue-500 */
-    --primary-dark: #1e40af; /* Tailwind Blue-700 */
+    --primary-dark: #2044b9; /* Tailwind Blue-700 */
     --primary-light: #b2cff0; /* Tailwind Blue-300 */
   
     /* Text Colors */
     --text-main: #1e293b; /* Dark grayish blue */
     --text-footer: #ffffff;
     --text-link: #1b2436; /* Bright blue */
-    --text-link-hover: #1538aa;
+    --text-link-hover: #6d81c5;
   
     /* Border Colors */
     --border-primary: #121f2c;

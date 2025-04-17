@@ -30,16 +30,16 @@ const LoginPage = () => {
                 <h2 className="text-center text-4xl font-extrabold text-main">
                     Sign in to your account
                 </h2>
-                <p className="mt-4 text-center text-lg text-main max-w">
+                <p className="mt-3 text-center text-lg text-main max-w">
                     Or{" "}
-                    <Link href="/register" className="font-medium text-primary-dark hover:text-blue-500">
+                    <Link href="/register" className="font-medium text-primary-dark hover:text-text-link-hover">
                         create an account
                     </Link>
                 </p>
             </div>
 
-            <div className="mt-12 sm:mx-auto sm:w-full sm:max-w-lg">
-                <div className="bg-primary-light py-12 px-8 shadow-lg sm:rounded-xl sm:px-12">
+            <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-lg">
+                <div className="bg-navbar py-12 px-8 border-border-primary shadow-lg sm:rounded-xl sm:px-12">
                     <form className="space-y-8" action={formAction}>
                         <div>
                             <label htmlFor="email" className="block text-lg font-medium text-main">
@@ -83,13 +83,13 @@ const LoginPage = () => {
                                     type="checkbox"
                                     className="h-5 w-5 text-main focus:ring-indigo-500 border-primary rounded"
                                 />
-                                <label htmlFor="remember_me" className="ml-3 block text-lg text-gray-900">
+                                <label htmlFor="remember_me" className="ml-3 block text-lg text-main">
                                     Remember me
                                 </label>
                             </div>
 
                             <div className="text-lg">
-                                <Link href="#" className="font-medium text-primary-dark hover:text-blue-500">
+                                <Link href="#" className="font-medium text-primary-dark hover:text-text-link-hover">
                                     Forgot your password?
                                 </Link>
                             </div>
@@ -98,7 +98,7 @@ const LoginPage = () => {
                         <div>
                             <button
                                 type="submit"
-                                className="group relative w-full flex justify-center py-4 px-6 text-lg font-semibold rounded-lg text-primary bg-primary-dark hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="group relative w-full flex justify-center py-4 px-6 text-lg font-semibold rounded-lg text-primary bg-primary-dark hover:bg-text-link-hover focus:outline-none focus:ring-4 focus:ring-offset-2"
                             >
                                 Sign in
                             </button>
