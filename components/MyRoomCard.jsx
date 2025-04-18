@@ -16,7 +16,7 @@ const MyRoomCard = ({ room }) => {
                 >
                     <Link
                         href={`/rooms/${room.$id}`}
-                        className="bg-primary-dark text-white px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-text-link-hover"
+                        className="bg-primary-dark text-primary px-4 py-2 rounded mb-2 sm:mb-0 w-full sm:w-auto text-center hover:bg-text-link-hover"
                     >
                         <FaEye className="inline mr-2"></FaEye> View
                     </Link>

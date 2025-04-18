@@ -22,14 +22,14 @@ const RoomCard = ({ room }) => {
             <div className="p-5 flex-1">
                 <h4 className="text-lg font-semibold">{room.name}</h4>
                 <p className="text-sm text-white-600">
-                    <span className="font-semibold text-white-800"> Address:</span> {room.address}
+                    <span className="font-semibold text-main"> Address:</span> {room.address}
                 </p>
                 <p className="text-sm text-white-600">
-                    <span className="font-semibold text-white-800"> Availability: </span>
+                    <span className="font-semibold text-main"> Availability: </span>
                     {room.availability}
                 </p>
                 <p className="text-sm text-white-600">
-                    <span className="font-semibold text-white-800"> Price:</span>
+                    <span className="font-semibold text-main"> Price:</span>
                     ${room.price_per_hour}/hour
                 </p>
             </div>
@@ -37,7 +37,7 @@ const RoomCard = ({ room }) => {
             <div className="p-5 flex flex-col items-center justify-center">
                 <Link
                     href={`/rooms/${room.$id}`}
-                    className="bg-primary-dark text-white px-4 py-2 rounded w-auto text-center hover:bg-text-link-hover"
+                    className="bg-primary-dark text-primary px-4 py-2 rounded w-auto text-center hover:bg-text-link-hover"
                 >
                     View Room
                 </Link>

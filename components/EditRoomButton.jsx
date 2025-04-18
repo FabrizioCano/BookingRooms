@@ -15,7 +15,7 @@ const EditRoomButton = ({ room }) => {
   return (
     <button
       onClick={handleEdit}
-      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 flex items-center gap-2"
+      className="bg-primary-dark text-primary px-4 py-2 rounded hover:bg-text-link-hover flex items-center gap-2"
     >
       <FaEdit /> Edit
     </button>

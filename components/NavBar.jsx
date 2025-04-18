@@ -16,7 +16,12 @@ export default function Navbar() {
   const router = useRouter();
   const { isAuthenticated, setIsAuthenticated } = useAuth();
 
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+  
   const handleLogout = async () => {
+    setIsMobileMenuOpen(false);
     const { success, error } = await destroySession();
     if (success) {
       setIsAuthenticated(false);
@@ -59,15 +64,15 @@ export default function Navbar() {
           <ul className="flex flex-col h-full gap-4 p-4">
             {!isAuthenticated ? (
               <>
-                <li><Link href="/" className="text-lg text-link text-link-hover"><FaBorderAll className='inline mr-1' />Rooms</Link></li>
-                <li><Link href="/register" className="text-lg text-link text-link-hover"><FaUser className='inline mr-1' />Register</Link></li>
-                <li><Link href="/login" className="text-lg text-link text-link-hover rounded-md"><FaSignInAlt className='inline mr-1' />Login</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/" className="text-lg text-link text-link-hover"><FaBorderAll className='inline mr-1' />Rooms</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/register" className="text-lg text-link text-link-hover"><FaUser className='inline mr-1' />Register</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/login" className="text-lg text-link text-link-hover rounded-md"><FaSignInAlt className='inline mr-1' />Login</Link></li>
               </>
             ) : (
               <>
-                <li><Link href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
-                <li><Link href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
-                <li><Link href="/rooms/my" className="text-lg text-link text-link-hover"><FaBuilding className='inline mr-1' />My Rooms</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
+                <li><Link onClick={handleMobileLinkClick} href="/rooms/my" className="text-lg text-link text-link-hover"><FaBuilding className='inline mr-1' />My Rooms</Link></li>
                 <li><button onClick={handleLogout} className="bg-transparent text-lg text-link text-link-hover rounded-md"><FaSignOutAlt className='inline mr-1' />Sign Out</button></li>
               </>
             )}

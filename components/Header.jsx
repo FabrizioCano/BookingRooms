@@ -62,10 +62,10 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- Right Side Menu --> */}
+                    
                     <div className='ml-auto'>
                         <div className='ml-4 flex items-center md:ml-6'>
-                            {/* <!-- Logged Out Only --> */}
+                            
                             {!isAuthenticated && (
                                 <>
                                     <Link

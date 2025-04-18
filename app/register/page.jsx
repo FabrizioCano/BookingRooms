@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import createUser from "../actions/createUser";
 import Link from "next/link";
+import Heading from "@/components/Heading";
 const RegisterPage = () => {
 
     const [state, formAction] = useActionState(createUser, {});
@@ -22,11 +23,11 @@ const RegisterPage = () => {
     }, [state])
 
     return (
-
         <div className="bg-main min-h-screen flex flex-col">
             <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-4">
+            <Heading title='Register'></Heading>
                 <div className="bg-navbar px-8 py-10 mt-3 mb-8 rounded-lg shadow-md text-main w-100">
-                    <h1 className="mb-8 text-4xl font-bold text-center">Register</h1>
+                    
                     <form action={formAction}>
                         
 

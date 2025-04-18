@@ -7,7 +7,8 @@ import { redirect } from 'next/navigation';
 import checkAuth from './checkAuth';
 
 async function getMyBookings() {
-  const sessionCookie = cookies().get('appwrite-session');
+  const cookie = await cookies();
+  const sessionCookie = cookie.get('appwrite-session');
   if (!sessionCookie) {
     redirect('/login');
   }

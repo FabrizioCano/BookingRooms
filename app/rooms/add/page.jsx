@@ -21,12 +21,12 @@ const AddRoomPage = () => {
   return (
     <>
       <Heading title='Add a Room' />
-      <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl mx-auto mt-10'>
+      <div className='bg-primary-light shadow-lg rounded-lg p-6 w-full max-w-2xl mx-auto mt-10'>
         <form action={formAction}>
           <div className='mb-4'>
             <label
               htmlFor='name'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Room Name
             </label>
@@ -43,7 +43,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='description'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Description
             </label>
@@ -59,7 +59,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='sqft'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Square Feet
             </label>
@@ -76,7 +76,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='capacity'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Capacity
             </label>
@@ -93,7 +93,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='price_per_hour'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Price Per Hour
             </label>
@@ -110,7 +110,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='address'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Address
             </label>
@@ -127,7 +127,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='location'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Location
             </label>
@@ -144,7 +144,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='availability'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Availability
             </label>
@@ -161,7 +161,7 @@ const AddRoomPage = () => {
           <div className='mb-4'>
             <label
               htmlFor='amenities'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Amenities
             </label>
@@ -175,11 +175,11 @@ const AddRoomPage = () => {
             />
           </div>
 
-          {/* <!-- Image Upload --> */}
+          
           <div className='mb-8'>
             <label
               htmlFor='image'
-              className='block text-gray-700 font-bold mb-2'
+              className='block text-main font-bold mb-2'
             >
               Image
             </label>
@@ -188,14 +188,14 @@ const AddRoomPage = () => {
               type='file'
               id='image'
               name='image'
-              className='border rounded w-full py-2 px-3'
+              className='border border-4 rounded w-full py-2 px-3'
             />
           </div>
 
           <div className='flex flex-col gap-5'>
             <button
               type='submit'
-              className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700'
+              className='bg-primary-dark text-primary px-4 py-2 rounded hover:bg-text-link-hover'
             >
               Save
             </button>

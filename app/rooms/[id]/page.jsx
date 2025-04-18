@@ -21,8 +21,8 @@ const RoomPage = async ({ params }) => {
         <>
             <div className="pt-5">
                 <Heading title={room.name} />
-                <div className="bg-sky-100 rounded-lg p-6 max-w-2xl mx-auto">
-                    <Link href="/" className="flex items-center text-dark-800 hover:text-blue-600 mb-4">
+                <div className="bg-primary-light rounded-lg p-6 max-w-2xl mx-auto">
+                    <Link href="/" className="flex items-center text-dark-800 hover:text-text-link-hover mb-4">
                         <FaChevronLeft className="mr-2" />
                         <span>Back to Rooms</span>
                     </Link>
@@ -37,20 +37,20 @@ const RoomPage = async ({ params }) => {
                         />
 
                         <div className="mt-4 sm:mt-0 sm:w-1/2">
-                            <p className="text-gray-600 mb-4">{room.description}</p>
+                            <p className="text-main mb-4">{room.description}</p>
 
                             <ul className="space-y-2">
                                 <li>
-                                    <span className="font-semibold text-gray-800">Size:</span> {room.sqft}
+                                    <span className="font-semibold text-main">Size:</span> {room.sqft}
                                 </li>
                                 <li>
-                                    <span className="font-semibold text-gray-800">Availability:</span> {room.availability}
+                                    <span className="font-semibold text-main">Availability:</span> {room.availability}
                                 </li>
                                 <li>
-                                    <span className="font-semibold text-gray-800">Price:</span> ${room.price}/hour
+                                    <span className="font-semibold text-main">Price:</span> ${room.price}/hour
                                 </li>
                                 <li>
-                                    <span className="font-semibold text-gray-800">Address:</span> {room.address}
+                                    <span className="font-semibold text-main">Address:</span> {room.address}
                                 </li>
                             </ul>
                         </div>
