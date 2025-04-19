@@ -2,16 +2,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from '@/assets/images/bookinglogo.svg';
-import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding, FaBimobject,FaBorderAll,FaWarehouse} from 'react-icons/fa';
+import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding, FaBimobject, FaBorderAll, FaWarehouse,FaAngleDown,FaChalkboardTeacher} from 'react-icons/fa';
 import destroySession from "@/app/actions/destroySession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useAuth } from "@/app/context/authContext";
 import { useState } from "react";
+import React from "react";
+import {
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const [open, setOpen] = React.useState(0);
 
   const router = useRouter();
   const { isAuthenticated, setIsAuthenticated } = useAuth();
@@ -19,7 +30,10 @@ export default function Navbar() {
   const handleMobileLinkClick = () => {
     setIsMobileMenuOpen(false);
   };
-  
+  const handleOpen = (value) => {
+    setOpen(open === value ? 0 : value);
+  };
+
   const handleLogout = async () => {
     setIsMobileMenuOpen(false);
     const { success, error } = await destroySession();
@@ -34,14 +48,14 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-navbar shadow-lg backdrop-blur-lg backdrop-saturate-150 z-50 py-4">
       <div className="container flex flex-wrap items-center justify-between mx-auto text-main">
-      <Link href='/'>
-                            <Image
-                                className='h-12 w-12 ml-4'
-                                src={logo}
-                                alt='Bookit'
-                                priority={true}
-                            />
-                        </Link>
+        <Link href='/'>
+          <Image
+            className='h-12 w-12 ml-4'
+            src={logo}
+            alt='Bookit'
+            priority={true}
+          />
+        </Link>
 
         <div className="lg:hidden">
           <button onClick={toggleMobileMenu} className="h-6 w-6 mr-5 text-slate-600">
@@ -54,7 +68,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div className={`fixed top-0 left-0 min-h-screen w-64 bg-navbar shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"} lg:hidden z-50`}>
           <div className="flex flex-row items-center border-b pb-4">
-            <Link href="/" className="text-link font-bold text-xl pt-4 ps-4">BOOKINGS</Link>
+            <Link href="/" className="text-link font-bold text-xl pt-4 ps-4">BOOKA</Link>
             <button onClick={toggleMobileMenu} className="absolute top-4 right-4 text-link text-link-hover">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -64,16 +78,49 @@ export default function Navbar() {
           <ul className="flex flex-col h-full gap-4 p-4">
             {!isAuthenticated ? (
               <>
-                <li><Link onClick={handleMobileLinkClick} href="/" className="text-lg text-link text-link-hover"><FaBorderAll className='inline mr-1' />Rooms</Link></li>
-                <li><Link onClick={handleMobileLinkClick} href="/register" className="text-lg text-link text-link-hover"><FaUser className='inline mr-1' />Register</Link></li>
-                <li><Link onClick={handleMobileLinkClick} href="/login" className="text-lg text-link text-link-hover rounded-md"><FaSignInAlt className='inline mr-1' />Login</Link></li>
+              <List>
+                <ListItem><Link onClick={handleMobileLinkClick} href="/" className="text-lg text-link text-link-hover"><Typography color="blue-gray" className="mr-auto font-normal"><FaBorderAll className='inline mr-1' />Rooms</Typography></Link></ListItem>
+                <ListItem><Link onClick={handleMobileLinkClick} href="/register" className="text-lg text-link text-link-hover"><Typography color="blue-gray" className="mr-auto font-normal"><FaUser className='inline mr-1' />Register</Typography></Link></ListItem>
+                <ListItem><Link onClick={handleMobileLinkClick} href="/login" className="text-lg text-link text-link-hover rounded-md"><Typography color="blue-gray" className="mr-auto font-normal"><FaSignInAlt className='inline mr-1' />Login</Typography></Link></ListItem>
+                </List>
               </>
             ) : (
               <>
-                <li><Link onClick={handleMobileLinkClick} href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
-                <li><Link onClick={handleMobileLinkClick} href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
-                <li><Link onClick={handleMobileLinkClick} href="/rooms/my" className="text-lg text-link text-link-hover"><FaBuilding className='inline mr-1' />My Rooms</Link></li>
-                <li><button onClick={handleLogout} className="bg-transparent text-lg text-link text-link-hover rounded-md"><FaSignOutAlt className='inline mr-1' />Sign Out</button></li>
+              <List>
+                <Accordion open={open === 1}>
+                  <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3 flex gap-2">
+                  <FaAngleDown className="h-5 w-5" />
+                    <Typography color="blue-gray" className="mr-auto font-normal text-lg">
+                      Bookings
+                    </Typography>
+                  </AccordionHeader>
+                  {open === 1 && (
+                    <AccordionBody className="py-1">
+                      <List className="pt-0 pl-8">
+                        <ListItem>
+                          <Link onClick={handleMobileLinkClick} href="/bookings" className="text-lg text-link text-link-hover">
+                            <Typography color="blue-gray" className="mr-auto font-normal"><FaBimobject className='inline mr-1' />My Bookings</Typography>
+                          </Link>
+                        </ListItem>
+                        <ListItem>
+                          <Link onClick={handleMobileLinkClick} href="/rooms/add" className="text-lg text-link text-link-hover">
+                            <Typography color="blue-gray" className="mr-auto font-normal"><FaWarehouse className='inline mr-1' />Add Room</Typography>
+                          </Link>
+                        </ListItem>
+                        <ListItem>
+                          <Link onClick={handleMobileLinkClick} href="/rooms/my" className="text-lg text-link text-link-hover">
+                            <Typography color="blue-gray" className="mr-auto font-normal"><FaBuilding className='inline mr-1' />My Rooms</Typography>
+                          </Link>
+                        </ListItem>
+                      </List>
+                    </AccordionBody>
+                  )}
+                </Accordion>
+                <ListItem><button onClick={handleLogout} className="bg-transparent text-sm text-link text-link-hover rounded-md"><Typography color="blue-gray" className="mr-auto font-normal text-lg"><FaChalkboardTeacher className='inline mr-3' />Profile</Typography></button></ListItem>
+                <ListItem><button onClick={handleLogout} className="bg-transparent text-sm text-link text-link-hover rounded-md"><Typography color="blue-gray" className="mr-auto font-normal text-lg"><FaSignOutAlt className='inline mr-3' />Sign Out</Typography></button></ListItem>
+                </List>
+
+
               </>
             )}
           </ul>
@@ -99,6 +146,6 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
