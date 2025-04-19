@@ -6,7 +6,7 @@ import { ID } from "node-appwrite";
 import { redirect } from "next/navigation";
 import checkAuth from "./checkAuth";
 import { revalidatePath } from "next/cache";
-
+import checkRoomAvailability from "./checkRoomAvailability";
 async function bookRoom(previousState, formData) {
   const cookie = await cookies();
   const sessionCookie = cookie.get("appwrite-session");
@@ -16,7 +16,7 @@ async function bookRoom(previousState, formData) {
 
   try {
     const { databases } = await createSessionClient(sessionCookie.value);
-
+    const roomId=formData.get("room_id");
     // Get user's ID
     const { user } = await checkAuth();
 
@@ -36,9 +36,22 @@ async function bookRoom(previousState, formData) {
     const checkInDateTime = `${checkInDate}T${checkInTime}`;
     const checkOutDateTime = `${checkOutDate}T${checkOutTime}`;
 
+    //check if the room is available for the given dates
+    const isAvailable = await checkRoomAvailability(
+      roomId,
+      checkInDateTime,
+      checkOutDateTime
+    );
+
+    if (!isAvailable) {
+      return {
+        error: "Room is not available for the selected date and time",
+      }
+    }
+
     const bookingData = {
       user_id: user.id,
-      room_id: formData.get("room_id"),
+      room_id: roomId,
       check_in: checkInDateTime,
       check_out: checkOutDateTime,
     };

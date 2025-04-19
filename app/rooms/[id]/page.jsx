@@ -16,6 +16,7 @@ const RoomPage = async ({ params }) => {
     const bucketId = process.env.NEXT_PUBLIC_APPWRITE_STORAGE_BUCKET_ROOMS;
     const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT;
     const imageUrl = `https://cloud.appwrite.io/v1/storage/buckets/${bucketId}/files/${room.image}/view?project=${projectId}`;
+    const imageSrc = room.image ? imageUrl : '/images/no-image.jpg';
 
     return (
         <>
@@ -29,7 +30,7 @@ const RoomPage = async ({ params }) => {
 
                     <div className="flex flex-col items-center sm:flex-row sm:items-start sm:space-x-6">
                         <Image
-                            src={imageUrl}
+                            src={imageSrc}
                             alt={room.name}
                             width={350}
                             height={200}
