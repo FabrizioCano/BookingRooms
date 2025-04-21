@@ -6,7 +6,7 @@ const MyRoomCard = ({ room }) => {
     return (
         <>
             <div
-                className="bg-main shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-center"
+                className="bg-main shadow-lg rounded-lg border border-primary p-4 mt-4 flex flex-col sm:flex-row justify-between items-center"
             >
                 <div className="flex flex-col">
                     <h4 className="text-lg font-semibold">{room.name}</h4>

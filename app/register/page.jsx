@@ -23,14 +23,11 @@ const RegisterPage = () => {
     }, [state])
 
     return (
-        <div className="bg-main min-h-screen flex flex-col">
-            <div className="container max-w-lg mx-auto flex-1 flex flex-col items-center justify-center px-4">
+        <div className="bg-main flex flex-col min-h-screen bg-main">
+            <div className="container max-w-lg mx-auto w-full items-center justify-center px-4">
             <Heading title='Register'></Heading>
-                <div className="bg-navbar px-8 py-10 mt-3 mb-8 rounded-lg shadow-md text-main w-100">
-                    
+                <div className="bg-navbar p-6 w-full max-w-lg rounded-lg shadow-md text-main ">
                     <form action={formAction}>
-                        
-
                         <div className='mb-4'>
                             <label
                                 htmlFor='name'
@@ -102,7 +99,7 @@ const RegisterPage = () => {
                         <div className='flex flex-col gap-5'>
                             <button
                                 type='submit'
-                                className='bg-primary-dark text-primary px-4 py-2 rounded hover:bg-text-link-hover'
+                                className='bg-primary-dark text-primary text-lg font-bold px-4 py-2 rounded hover:bg-text-link-hover'
                             >
                                 Register
                             </button>

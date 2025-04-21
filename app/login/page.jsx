@@ -39,7 +39,7 @@ const LoginPage = () => {
             </div>
 
             <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-lg">
-                <div className="bg-navbar py-12 px-8 border-border-primary shadow-lg sm:rounded-xl sm:px-12">
+                <div className="bg-navbar py-8 px-8 border-border-primary shadow-lg sm:rounded-xl sm:px-12">
                     <form className="space-y-8" action={formAction}>
                         <div>
                             <label htmlFor="email" className="block text-lg font-medium text-main">
