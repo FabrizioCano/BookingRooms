@@ -20,10 +20,10 @@ const RoomPage = async ({ params }) => {
 
     return (
         <>
-            <div className="pt-5">
+            <div className="pt-2">
                 <Heading title={room.name} />
-                <div className="bg-primary-light rounded-lg p-6 max-w-2xl mx-auto">
-                    <Link href="/" className="flex items-center text-dark-800 hover:text-text-link-hover mb-4">
+                <div className="bg-primary-light rounded-lg p-5 max-w-2xl mx-auto">
+                    <Link href="/" className="flex items-center text-main hover:text-text-link-hover mb-4">
                         <FaChevronLeft className="mr-2" />
                         <span>Back to Rooms</span>
                     </Link>

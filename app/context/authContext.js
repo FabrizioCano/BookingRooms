@@ -6,12 +6,13 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const checkAuthentication = async () => {
       const { isAuthenticated, user } = await checkAuth();
       setIsAuthenticated(isAuthenticated);
       setCurrentUser(user);
+      setLoading(false);
     };
 
     checkAuthentication();
@@ -24,6 +25,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
+        loading,
       }}
     >
       {children}
