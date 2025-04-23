@@ -23,7 +23,7 @@ const BookedRoomCard = ({booking}) => {
     }
     return ( 
         <div
-        className="bg-main shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center"
+        className="bg-main shadow rounded-lg p-4 mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center max-w-3xl mx-auto"
       >
         <div>
           <h4 className="text-lg font-semibold">{room.name}</h4>

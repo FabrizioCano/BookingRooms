@@ -29,7 +29,7 @@ export default function SearchRooms({ rooms }) {
                             setSearch("");
                             setQuery("");
                         }}
-                        className="bg-main hover:bg-primary-light text-main px-4 py-2 rounded-md mb-0"
+                        className="bg-primary-dark hover:bg-text-link-hover text-primary px-4 py-2 rounded-md mb-0"
                     >
                     <span>Back to Rooms</span>
                     </button> 
