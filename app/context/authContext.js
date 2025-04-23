@@ -7,11 +7,17 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [roles, setRoles] = useState([]);
+
+ 
   useEffect(() => {
     const checkAuthentication = async () => {
       const { isAuthenticated, user } = await checkAuth();
       setIsAuthenticated(isAuthenticated);
       setCurrentUser(user);
+      if(user){
+        setRoles(user.roles || []);
+      }
       setLoading(false);
     };
 
@@ -25,7 +31,9 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated,
         currentUser,
         setCurrentUser,
-        loading,
+        roles,
+        setRoles,
+        /* loading, */
       }}
     >
       {children}

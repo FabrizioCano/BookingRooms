@@ -18,7 +18,7 @@ async function getUserInfo() {
     );
 
     const user = await account.get();
-    console.log("User info", user);
+    
 
     return user;
   } catch (error) {

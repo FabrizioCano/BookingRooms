@@ -1,62 +1,62 @@
-import Heading from "@/components/Heading";
+import { FaEnvelope, FaPhone, FaCalendarAlt } from "react-icons/fa";
 import getUserInfo from "../actions/getUserInfo";
 
 const UserInfo = async () => {
-    const user = await getUserInfo();
+  const user = await getUserInfo();
 
-    const formatDate = (dateString) => {
-        const options = { month: 'short' };
-        const date = new Date(dateString);
-        const month = date.toLocaleDateString('en-US', options, { timeZone: 'UTC' });
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+      timeZone: "UTC",
+    });
+  };
 
-        const day = date.getUTCDate();
-
-        const timeOptions = {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true,
-        };
-
-        const time = date.toLocaleString('en-US', timeOptions, { timeZone: 'UTC' });
-
-        return `${month} ${day} at ${time}`;
-    };
-
+  if (!user) {
     return (
-        <div className="pt-5">
-            {user === null ? (
-                <Heading title="User Info not found" />
-            ) : (
-                <div className="bg-primary-light rounded-lg p-6 max-w-2xl mx-auto shadow border">
-                    <Heading title="User Profile" />
-
-                    <div className="bg-main px-4 py-5 sm:p-0 mt-4 rounded-md">
-                        <dl className="">
-                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-bold text-main">Username</dt>
-                                <dd className="mt-1 text-sm text-main sm:mt-0 sm:col-span-2 text-center">{user.name}</dd>
-                            </div>
-                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-bold text-main">Email address</dt>
-                                <dd className="mt-1 text-sm text-main sm:mt-0 sm:col-span-2 text-center">{user.email}</dd>
-                            </div>
-                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-bold text-main">Phone number</dt>
-                                <dd className="mt-1 text-sm text-main sm:mt-0 sm:col-span-2 text-center">
-                                    {user.phone?user.phone:"Not provided"}
-
-                                </dd>
-                            </div>
-                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-bold text-main">Join date</dt>
-                                <dd className="mt-1 text-sm text-main sm:mt-0 sm:col-span-2 text-center">{formatDate(user.registration)}</dd>
-                            </div>
-                        </dl>
-                    </div>
-                </div>
-            )}
-        </div>
+      <div className="pt-10 text-center text-xl font-semibold text-red-600">
+        User Info not found
+      </div>
     );
+  }
+
+  return (
+    <div className="flex justify-center items-center pt-10">
+      <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 border border-gray-200">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="w-24 h-24 bg-blue-200 rounded-full flex items-center justify-center text-3xl font-bold text-white">
+            {user.name?.charAt(0).toUpperCase()}
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">{user.name}</h2>
+            <p className="text-sm text-gray-500">Joined {formatDate(user.registration)}</p>
+          </div>
+        </div>
+
+        <div className="mt-6 space-y-4">
+          <div className="flex items-center gap-3 text-sm text-gray-700">
+            <FaEnvelope className="text-blue-500" />
+            <span>{user.email}</span>
+          </div>
+
+          <div className="flex items-center gap-3 text-sm text-gray-700">
+            <FaPhone className="text-blue-500" />
+            <span>{user.phone || "Not provided"}</span>
+          </div>
+
+          <div className="flex items-center gap-3 text-sm text-gray-700">
+            <FaCalendarAlt className="text-blue-500" />
+            <span>Joined on {formatDate(user.registration)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default UserInfo;
