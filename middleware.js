@@ -17,6 +17,7 @@ export async function middleware(request) {
     '/rooms/my': ['admin', 'user'],
     '/rooms/edit': ['admin'],
     '/profile': ['admin', 'user'],
+    '/users': ['admin'],
   };
 
   const authorizedRoles = routeRoles[pathname];
@@ -34,6 +35,7 @@ export const config = {
     '/rooms/add',
     '/rooms/my',
     '/rooms/edit',
-    '/profile'
+    '/profile',
+    '/users',
   ],
 };

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from '@/assets/images/bookinglogo.svg';
-import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding, FaBimobject, FaBorderAll, FaWarehouse, FaAngleDown, FaChalkboardTeacher, FaHome } from 'react-icons/fa';
+import { FaUser, FaSignInAlt, FaSignOutAlt, FaBuilding, FaBimobject, FaBorderAll, FaWarehouse, FaAngleDown, FaChalkboardTeacher, FaHome, FaUserEdit } from 'react-icons/fa';
 import destroySession from "@/app/actions/destroySession";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -125,7 +125,7 @@ export default function Navbar() {
             ) : (
               <>
                 <List>
-                <ListItem><Link onClick={handleMobileLinkClick} href="/" className="text-lg text-link text-link-hover"><Typography color="text-main" className="mr-auto font-normal text-lg"><FaHome className='inline mr-3' />Home</Typography></Link></ListItem>
+                  <ListItem><Link onClick={handleMobileLinkClick} href="/" className="text-lg text-link text-link-hover"><Typography color="text-main" className="mr-auto font-normal text-lg"><FaHome className='inline mr-3' />Home</Typography></Link></ListItem>
                   <Accordion open={open === 1}>
                     <AccordionHeader onClick={() => handleOpen(1)} className="border-b-0 p-3 flex gap-2">
                       <FaAngleDown className="h-5 w-5" />
@@ -158,6 +158,13 @@ export default function Navbar() {
                     )}
                   </Accordion>
                   <ListItem><Link onClick={handleMobileLinkClick} href="/profile" className="text-lg text-link text-link-hover"><Typography color="text-main" className="mr-auto font-normal text-lg"><FaChalkboardTeacher className='inline mr-3' />Profile</Typography></Link></ListItem>
+                  {isAdmin && (
+                    <ListItem>
+                      <Link onClick={handleMobileLinkClick} href="/users" className="text-lg text-link text-link-hover">
+                      <Typography color="text-main" className="mr-auto font-normal text-lg"><FaUserEdit className='inline mr-3' />User Management</Typography>
+                      </Link>
+                    </ListItem>
+                  )}
                   <ListItem><button onClick={handleLogout} className="bg-transparent text-sm text-link text-link-hover rounded-md"><Typography color="text-main" className="mr-auto font-normal text-lg"><FaSignOutAlt className='inline mr-3' />Sign Out</Typography></button></ListItem>
                 </List>
               </>
@@ -177,7 +184,14 @@ export default function Navbar() {
             ) : (
               <>
                 <li><Link href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
-                {isAdmin && (<li><Link href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>)}
+                {isAdmin && (
+                  <>
+                  <li><Link href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
+                  <li><Link onClick={handleMobileLinkClick} href="/users" className="text-lg text-link text-link-hover">
+                      <Typography color="text-main" className="mr-auto font-normal text-lg"><FaUserEdit className='inline mr-3' />User Management</Typography>
+                      </Link></li>
+                  </>
+              )}
                 <li><Link href="/rooms/my" className="text-lg text-link text-link-hover"><FaBuilding className='inline mr-1' />My Rooms</Link></li>
                 <li><Link href="/profile" className="text-lg text-link text-link-hover"><FaChalkboardTeacher className='inline mr-1' />Profile</Link></li>
                 <li><button onClick={handleLogout} className="text-lg text-link text-link-hover"><FaSignOutAlt className='inline mr-1' />Sign Out</button></li>
