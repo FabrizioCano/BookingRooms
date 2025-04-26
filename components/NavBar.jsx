@@ -25,17 +25,19 @@ export default function Navbar() {
   const [open, setOpen] = useState(0);
 
   const router = useRouter();
-  const { loading, isAuthenticated, setIsAuthenticated, roles } = useAuth();
+  const { loading, isAuthenticated, setIsAuthenticated, roles ,hydrated} = useAuth();
 
   const isAdmin = roles.includes('admin');
   const isUser = roles.includes('user');
 
   useEffect(() => {
+
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setIsMobileMenuOpen(false);
       }
     };
+    
 
     window.addEventListener("resize", handleResize);
 
@@ -64,15 +66,8 @@ export default function Navbar() {
     }
   };
 
-  if (loading) {
-    return (
-      <nav className="fixed top-0 left-0 w-full bg-navbar shadow-lg backdrop-blur-lg backdrop-saturate-150 z-50 py-4">
-        <div className="container mx-auto flex justify-center items-center h-16 text-main">
-          <span className="animate-pulse text-sm text-link"></span>
-        </div>
-      </nav>
-    );
-  }
+ 
+  
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-navbar shadow-lg backdrop-blur-lg backdrop-saturate-150 z-50 py-4">
@@ -87,7 +82,7 @@ export default function Navbar() {
           <Link href='/' className="hidden lg:flex items-center text-lg text-link text-link-hover">
             <FaHome className="inline mr-2"> </FaHome>Home
           </Link>
-          {isAuthenticated && isUser && (
+          {isAuthenticated && (
             <Link href="/profile" className="hidden lg:flex items-center text-lg text-link text-link-hover">
               <FaChalkboardTeacher className="inline mr-2" />
               Profile
@@ -175,16 +170,16 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:block">
           <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            {!isAuthenticated ? (
+            {hydrated && !isAuthenticated ? (
               <>
                 <li><Link href="/" className="text-lg text-link text-link-hover"><FaBorderAll className='inline mr-1' />Rooms</Link></li>
                 <li><Link href="/register" className="text-lg text-link text-link-hover"><FaUser className='inline mr-1' />Register</Link></li>
                 <li><Link href="/login" className="text-lg text-link text-link-hover rounded-md mr-5"><FaSignInAlt className='inline mr-1' />Login</Link></li>
               </>
-            ) : (
+            ) :  (
               <>
                 <li><Link href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
-                {isAdmin && (
+                {(isAdmin) && (
                   <>
                   <li><Link href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
                   <li><Link onClick={handleMobileLinkClick} href="/users" className="text-lg text-link text-link-hover">

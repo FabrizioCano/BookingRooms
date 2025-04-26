@@ -6,7 +6,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [hydrated,setHydrated]=useState(false);
   const [roles, setRoles] = useState([]);
 
  
@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
       if(user){
         setRoles(user.roles || []);
       }
-      setLoading(false);
+      setHydrated(true);
     };
 
     checkAuthentication();
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
         setCurrentUser,
         roles,
         setRoles,
-        /* loading, */
+        hydrated,
       }}
     >
       {children}

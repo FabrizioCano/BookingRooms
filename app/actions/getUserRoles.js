@@ -31,6 +31,7 @@ async function getUserRoles() {
 
     
     const allUsers = await users.list(); 
+    console.log(allUsers); // Log all users for debugging
 
     const userMap = {};
     allUsers.users.forEach((user) => {
