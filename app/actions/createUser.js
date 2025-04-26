@@ -31,8 +31,28 @@ async function createUser(previousState,formData) {
     const {account} = await createAdminClient();
     try {
         //crear el usuario
-        await account.create(ID.unique(),email,password,name);
-
+        const user=await account.create(ID.unique(),email,password,name);
+        //asignar el rol de usuario al nuevo usuario
+        try {
+            const rol_usuario = await databases.listDocuments(
+              process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
+              process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ROLES,
+              [Query.equal('name', 'user')]
+            );
+            const rolId = rol_usuario.documents[0].$id;
+            await databases.createDocument(
+              process.env.NEXT_PUBLIC_APPWRITE_DATABASE,
+              process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_USERS,
+              ID.unique(),
+              {
+                userId: user.$id,
+                roleId: rolId,
+              }
+            );
+        } catch (err) {
+            console.error("Error assigning role to user:", err);
+            throw err;
+        }
         return {
             success:true,
         }

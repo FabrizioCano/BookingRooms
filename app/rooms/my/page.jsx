@@ -14,7 +14,7 @@ const MyRoomsPage = async () => {
           <MyRoomCard key={room.id || `room-${index}`} room={room} />
         ))
       ) : (
-        <p>You have no room listings</p>
+        <p className="text-main text-lg text-center mt-4">You have no room listings</p>
       )}
       </div>
     </>
