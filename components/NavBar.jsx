@@ -21,16 +21,16 @@ import {
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const [open, setOpen] = useState(0);
+  const [isAdmin, setIsAdmin] = useState(false);
 
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const router = useRouter();
-  const { loading, isAuthenticated, setIsAuthenticated, roles ,hydrated} = useAuth();
+  const { loading, isAuthenticated, setIsAuthenticated, roles} = useAuth();
 
-  const isAdmin = roles.includes('admin');
-  const isUser = roles.includes('user');
 
   useEffect(() => {
+    setIsAdmin(roles.includes('admin'));
 
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -44,7 +44,7 @@ export default function Navbar() {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [roles]);
 
   const handleMobileLinkClick = () => {
     setIsMobileMenuOpen(false);
@@ -170,7 +170,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:block">
           <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            {hydrated && !isAuthenticated ? (
+            {!isAuthenticated ? (
               <>
                 <li><Link href="/" className="text-lg text-link text-link-hover"><FaBorderAll className='inline mr-1' />Rooms</Link></li>
                 <li><Link href="/register" className="text-lg text-link text-link-hover"><FaUser className='inline mr-1' />Register</Link></li>
@@ -179,7 +179,7 @@ export default function Navbar() {
             ) :  (
               <>
                 <li><Link href="/bookings" className="text-lg text-link text-link-hover"><FaBimobject className='inline mr-1' />Bookings</Link></li>
-                {(isAdmin) && (
+                {isAdmin && (
                   <>
                   <li><Link href="/rooms/add" className="text-lg text-link text-link-hover"><FaWarehouse className='inline mr-1' />Add Room</Link></li>
                   <li><Link onClick={handleMobileLinkClick} href="/users" className="text-lg text-link text-link-hover">
