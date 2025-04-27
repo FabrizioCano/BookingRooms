@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import RoomCard from "./RoomCard";
-import { FaChevronLeft } from "react-icons/fa";
+
 export default function SearchRooms({ rooms }) {
     const [search, setSearch] = useState("");
     const [query, setQuery] = useState("");
