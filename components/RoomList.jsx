@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from "react";
-import SearchBar from "./SearchBar";
+import SearchBar from "./searchBar";
 import RoomCard from "./RoomCard";
 
-export default function SearchRooms({ rooms }) {
+const SearchRooms = ({ rooms }) => {
     const [search, setSearch] = useState("");
     const [query, setQuery] = useState("");
 
@@ -47,3 +47,5 @@ export default function SearchRooms({ rooms }) {
         </div>
     );
 }
+
+export default SearchRooms;

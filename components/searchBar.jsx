@@ -2,7 +2,7 @@
 
 import { FaSearch } from "react-icons/fa";
 
-export default function SearchBar({ search, setSearch, onSearch }) {
+const SearchBar = ({ search, setSearch, onSearch }) => {
   return (
     <form onSubmit={onSearch} className="flex justify-center my-6 space-x-2">
       <input
@@ -21,3 +21,4 @@ export default function SearchBar({ search, setSearch, onSearch }) {
     </form>
   );
 }
+export default SearchBar;
