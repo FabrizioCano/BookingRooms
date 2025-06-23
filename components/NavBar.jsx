@@ -188,7 +188,6 @@ export default function Navbar() {
                   </>
               )}
                 <li><Link href="/rooms/my" className="text-lg text-link text-link-hover"><FaBuilding className='inline mr-1' />My Rooms</Link></li>
-                <li><Link href="/profile" className="text-lg text-link text-link-hover"><FaChalkboardTeacher className='inline mr-1' />Profile</Link></li>
                 <li><button onClick={handleLogout} className="text-lg text-link text-link-hover"><FaSignOutAlt className='inline mr-1' />Sign Out</button></li>
               </>
             )}

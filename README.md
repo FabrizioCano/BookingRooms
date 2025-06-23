@@ -12,6 +12,11 @@ Reference: ``https://github.com/bradtraversy/bookit-app.git``
 - Mobile view: sidebar added for smaller screens
 - Styles: added tailwind variables and classes in order to change the appearance of the site.
 
+## Views of the App
+![Guest Layout](assets/images/guest.png)
+![HomePage](assets/images/home.png)
+![My Bookings](assets/images/mybook.png)
+![BookRoom](assets/images/book.png)
 ## Setting up project
 
 ### 1. Clone the project
