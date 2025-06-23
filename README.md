@@ -17,6 +17,7 @@ Reference: ``https://github.com/bradtraversy/bookit-app.git``
 ![HomePage](assets/images/home.png)
 ![My Bookings](assets/images/mybook.png)
 ![BookRoom](assets/images/book.png)
+
 ## Setting up project
 
 ### 1. Clone the project
@@ -24,9 +25,7 @@ Reference: ``https://github.com/bradtraversy/bookit-app.git``
 ```bash
 git clone https://github.com/FabrizioCano/BookingRooms.git
 ```
-
 ### 2. Choose the node package manager
-
 - npm
 - yarn
 - pnpm
