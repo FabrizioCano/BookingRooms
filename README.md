@@ -41,7 +41,7 @@ npm run start:dev
 
 ### 5. Open the project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result or go to vercel where the app is deployed: [bookingRooms](https://booking-rooms-jhgqjrckg-fabrizio-canos-projects.vercel.app/)
 
 
 ## Setting up Appwrite
